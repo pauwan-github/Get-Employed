@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Apply styles for larger screens */
+@media only screen and (min-width: 600px) {
+    /* Adjust layout for screens wider than 600px */
+    .container {
+        width: 80%; /* Adjust as needed */
+        margin: 0 auto;
+    }
+}
+
+/* Apply styles for even larger screens */
+@media only screen and (min-width: 900px) {
+    /* Adjust layout for screens wider than 900px */
+    .container {
+        width: 60%; /* Adjust as needed */
+    }
+}
+
+        #container{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 50px;
+            padding-bottom: 10px;
+            list-style: none;
+        }
+        header{
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 18px;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        }
+        ul{
+            list-style: none;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .cta{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: skyblue;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: navy;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover{
+            background-color: blue;
+            opacity: 1;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            opacity: 0.8;
+        }
+        .dropdown-content a{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-content a:hover{
+            background-color: #f2f2f2;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        #bar{
+            margin-top: 30px;
+            background-color: skyblue;
+            text-align: center;
+            padding-left: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 0px;
+
+        }
+        #bar ul li{
+             display: inline-flex; 
+        }
+        #bar ul li a{
+            text-decoration: none;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            transition: 500ms;
+            margin-left: 5px;
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+        #active{
+            background-color: red;
+            color: yellow;
+            border-radius: 5px;
+        }
+        #bar ul li a:hover{
+            background-color: blue;
+            color: white;
+            transition: 500ms;
+            border-radius: 10px;
+        }
+
+        .foot{
+    background-color: #333;
+    color:#fff;
+    text-align: center;
+    margin-top: 10px;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.con{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 20px;
+            margin-bottom: 0px;
+            list-style: none;
+            margin-top: 10px;
+            justify-content: space-evenly;
+            margin-bottom: 60px;
+            
+            
+        }
+        footer{
+            padding-top: 10px;
+            padding-left: 25px;
+            padding-bottom: 10px;
+        }
+        /* Form Container */
+#contain {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Heading */
+#contain h2 {
+    text-align: center;
+    font-size: 24px;
+    color: navy;
+    margin-bottom: 20px;
+}
+
+/* Form Input Fields */
+#contain input[type="text"],
+#contain input[type="email"],
+#contain input[type="tel"],
+#contain input[type="number"],
+#contain input[type="password"],
+#contain select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#contain input[type="text"]:focus,
+#contain input[type="email"]:focus,
+#contain input[type="tel"]:focus,
+#contain input[type="password"]:focus,
+#contain select:focus {
+    border-color: skyblue;
+    outline: none;
+    box-shadow: 0 0 5px rgba(135, 206, 235, 0.5);
+}
+
+/* Company Field (Initially Hidden) */
+#companyField {
+    display: none;
+}
+
+/* Terms and Policy Checkbox */
+#contain label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+#contain label input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#contain label a {
+    color: navy;
+    text-decoration: none;
+}
+
+#contain label a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+#contain button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: skyblue;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: navy;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contain button[type="submit"]:hover {
+    background-color: blue;
+    color: white;
+}
+
+/* Login Link */
+#contain p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+#contain p a {
+    color: navy;
+    text-decoration: none;
+}
+
+#contain p a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <div id="container" bgcolor="mint">
+        <header><img src="pics/location.png" width="30px" height="30px" >&nbsp Roysambu, Jewellery Complex Plaza, Ground Floor</header>
+        <header><img src="pics/mail.png.png" width="30px" height="30px" >&nbsp getemployed@gmail.com </header>
+        <header><img src="pics/tel.png.png" width="30px" height="30px" >&nbsp +2547446</header>
+        <header><a href="login.html">Login</a></header>
+    </div>
+    <div id="container">
+        <div class="img">
+    <a href="pics/2.png"><img src="pics/2.png" width="500px" height="150px" class="img"></a></div>
+    
+    <header>
+        <div id="bar">
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div>
+                    <form method="post" action="jobsearch.php"><p><center>
+                        <input type="submit" value="Available Jobs" /></center>
+                    </form>
+                </div></li> 
+                <li><a href="gal1.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>    
+            </ul>
+        </div>
+    </header>
+    </div>
+    
+
+
+    <div id="contain">
+        <form action="register.php" method="post" onsubmit="return validateForm()">
+            
+            <h2>Register</h2>
+            <p>Please enter the correct information.</p>
+            <input type="text" name="firstName" placeholder="First Name" required>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+            <input type="text" name="yob" maxlength="4" placeholder="Year of Birth" oninput="this.value = this.value.replace(/[^0-9]/g, '');" onblur="validateYearOfBirth(this)" required>
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="intersex">Intersex</option>
+            </select>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+            <select name="userType" onchange="toggleCompanyField(this)" required>
+                <option value="">Job Seeker or Employer</option>
+                <option value="jobSeeker">Job Seeker</option>
+                <option value="employer">Employer</option>
+            </select>
+            <input type="text" name="company" id="companyField" placeholder="Company Name" style="display:none;">
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+            <label>
+                <input type="checkbox" name="terms" required> I agree to the <a href="terms.html">Terms and Policy</a>
+            </label>
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="login.html">Click here to login</a></p>
+        </form>
+    </div>
+
+
+
+
+
+
+    <hr>
+    <div class="con">
+        <footer>
+            <a href="pics/2.png"><img src="pics\2.png" width="150px" height="150px"></a>
+        </footer>
+        <footer>
+            <strong><h3>Quick Links</h3></strong>
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div>
+                        <form method="post" action="jobsearch.php">
+                            <p><center><input type="submit" value="Available Jobs" /></center>
+                        </form>
+                    </div>
+                </li>       
+                <li><a href="gal1.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </footer>
+        <footer><strong><h3>Contact Us</h3></strong>
+        Get Employed<br>Jewel Complex, Roysambu<br>PO BOX 1212-00100, Nairobi,<br>Kenya<br>TEL: +254 7953<br>+254 7446<br>getemployed@gmail.com
+        </footer>
+    <footer><strong><h3>Socials</h3></strong>
+    <ul>
+        <li><a href=""><img src="pics\IG.png.png" width="20px" length="20px"> Instagram</a></li>
+        <li><a href=""><img src="pics\fb.png.png" width="20px" length="20px"> Facebook</a></li>
+        <li><a href=""><img src="pics\twitt.png.png" width="20px" length="20px"> Twitter</a></li>
+        <li><a href=""><img src="pics\app.png.png" width="20px" length="20px"> Whatsapp</a></li>
+    </ul></footer>
+    </div>
+        <div class="foot">
+            <p>&copy 2025 Get Employed. All rights reserved</p>
+        </div>
+
+
+
+
+
+
+        <script>
+            function toggleCompanyField(select) {
+                var companyField = document.getElementById('companyField');
+                companyField.style.display = select.value === 'employer' ? 'block' : 'none';
+            }
+    
+            function validateForm() {
+                var password = document.querySelector('input[name="password"]').value;
+                var confirmPassword = document.querySelector('input[name="confirmPassword"]').value;
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match.');
+                    return false;
+                }
+                // Add more password validation if needed
+                return true;
+            }
+
+            function validateYearOfBirth(input) {
+    const currentYear = new Date().getFullYear(); // Get the current year
+    const minYear = currentYear - 70; // Minimum allowed year (current year - 70)
+    const maxYear = currentYear - 18; // Maximum allowed year (current year - 18)
+
+    // Get the entered year of birth
+    const yearOfBirth = parseInt(input.value, 10);
+
+    // Check if the year is within the valid range
+    if (yearOfBirth < minYear || yearOfBirth > maxYear) {
+        alert(`Year of birth must be between ${minYear} and ${maxYear}.`);
+        input.value = ''; // Clear the input if invalid
+        input.focus(); // Focus on the input field for correction
+    }
+}
+        </script>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOB REGISTRATION</title>
+<style>
+    /* Apply styles for larger screens */
+@media only screen and (min-width: 600px) {
+    /* Adjust layout for screens wider than 600px */
+    .container {
+        width: 80%; /* Adjust as needed */
+        margin: 0 auto;
+    }
+}
+
+/* Apply styles for even larger screens */
+@media only screen and (min-width: 900px) {
+    /* Adjust layout for screens wider than 900px */
+    .container {
+        width: 60%; /* Adjust as needed */
+    }
+}
+       .imog{
+            background-color: aqua;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            border-radius: 10px;
+        }
+        .images{
+            display: flex;
+            margin-top: 20px;
+            margin-left: 0px;
+            justify-content: space-evenly;
+            background-color: aqua;
+        }
+        .image1{
+            padding-left: 20px;
+            width: 100%;
+            height: 100%;
+        }
+        #container{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 50px;
+            padding-bottom: 10px;
+            list-style: none;
+        }
+        header{
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 18px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        ul{
+            list-style: none;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .cta{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: skyblue;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: navy;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover{
+            background-color: blue;
+            opacity: 1;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            opacity: 0.8;
+        }
+        .dropdown-content a{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-content a:hover{
+            background-color: #f2f2f2;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        #bar{
+            margin-top: 30px;
+            background-color: skyblue;
+            text-align: center;
+            padding-left: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 0px;
+
+        }
+        #bar ul li{
+            display: inline-flex;  
+        }
+        #bar ul li a{
+            text-decoration: none;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            transition: 500ms;
+            margin-left: 5px;
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+        #active{
+            background-color: red;
+            color: yellow;
+            border-radius: 5px;
+        }
+        #bar ul li a:hover{
+            background-color: blue;
+            color: white;
+            transition: 500ms;
+            border-radius: 10px;
+        }
+
+        .foot{
+    background-color: #333;
+    color:#fff;
+    text-align: center;
+    margin-top: 10px;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.con{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 20px;
+            margin-bottom: 0px;
+            list-style: none;
+            margin-top: 10px;
+            justify-content: space-evenly;
+            margin-bottom: 60px;
+            
+            
+        }
+        footer{
+            padding-top: 10px;
+            padding-left: 25px;
+            padding-bottom: 10px;
+        }
+
+
+    body{
+        background-repeat: no-repeat; /* Disable image repetition */
+          background-size: cover; /* Cover the entire background */
+       
+        /* Basic styling for the editor */
+        #editor {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 200px;
+            margin-top: 10px;
+            outline: none;
+        }
+        .toolbar button {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+    }
+</style>	
+</head>
+<body bgcolor="mintcream" text ="black">
+    <div id="container">
+        <header><img src="pics\location.png" width="30px" length="30px" >&nbsp Roysambu, Jewellery Complex Plaza, Ground Floor</header>
+        <header><img src="pics\mail.png.png" width="30px" length="30px" >&nbsp peopleshosp@gmail.com </header>
+        <header><img src="pics\tel.png.png" width="30px" length="30px" >&nbsp +254716684446</header>
+        <header><a href="login.html">Log Out</a></header>
+    </div>
+    <div id="container">
+        <div class="img">
+    <a href="pics/2.png"><img src="pics\2.png" width="500px" height="150px" class="img"></a></div>
+
+    <header>
+        <div id="bar">
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li>
+                    <div>
+                        <form method="post" action="jobsearch.php"><p><center>
+                            <input type="submit" value="Available Jobs" /></center>
+                        </form>
+                    </div>
+                </li> 
+                <li><a href="gal1.html">Gallery</a></li>
+                
+                <li><a href="contactus.html">Contact Us</a></li>
+    
+                
+            </ul>
+            
+        </div>
+        
+    </header>
+    </div>
+<form color="red" method ="post" action ="jobpost.php"  enctype="multipart/form-data">
+    <fieldset>
+        <legend><b><h4>REGISTER YOUR JOB</h4></b></legend>
+        
+        
+            <div class="imog">
+        
+                <div class="images">
+                    <div class="image1">
+                       <label><b>Job ID: </b></label>&nbsp &nbsp<input type="text" name ="id" size="20" required>
+                    </div>
+                    <div class="image1">
+                        <label><b>Company Name: </b></label><input type="text" size= "20" name ="company" required>
+                    </div>
+                    <div class="image1">
+                       <label><b>Job Title: </b></label><input type="text" size= "20" name ="jobname" required>
+                    </div>
+                    
+               </div>
+        
+        
+        
+                <div class="images">
+                    <div class="image1">
+                        <label><b>Country: </b></label><select id="country" name="country" required>
+                            <option value="">-- Select a country --</option>
+                        </select>
+                       
+                    </div>
+                    <div class="image1">
+                       <label><b>P.O BOX: </b></label><input type="number" size= "20" name ="box_no" required>
+                    </div>
+                    <div class="image1">
+                       <label><b>Location: </b></label><input type="text" size= "20" name ="location" required>
+                    </div>
+               </div>
+        
+        
+               <div class="images">
+                 <div class="image1">
+                    <label><b>Phone Number: </b></label><input type="tel" maxlength="10" name ="tel" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="0712345678" required>
+                  </div>
+                  <div class="image1">
+                    <b>Alt Phone Number: </b></label><input type="tel" maxlength="10" name ="tel1" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="0712345678"> 
+                  </div>
+                  <div class="image1">
+                      <label><b>Email: </b></label><input type="email" size= "20" name ="email" required>
+                  </div>
+                  
+               </div>
+        
+        
+               <div class="images">
+                      <div class="image1">
+                           <label><b>Secondary Email: </b></label><input type="email" size= "20" name ="email1">
+                      </div>
+                      <div class="image1">
+                          <label><b>Post Date: </b></label><input type="datetime-local" name ="post_date" id="post_date" required>
+                      </div>
+                      <div class="image1">
+                          <label><b>Deadline Date: </b></label><input type="datetime-local" name ="exp_date" id="exp_date" required>
+                      </div>
+                </div>
+        
+                <div class="images">
+                    <div class="image1">
+                          <label><b>No of Positions: </b></label><input type="number" id="positions" name ="no_of_positions" min = "1" max = "10000" oninput="calculate()" required>
+                    </div>
+                    <div class="image1">
+                          <label><b>Males: </b></label><input type="number" id="males" name="males" min="0" max="10000" oninput="calculate()">
+                    </div>
+                    <div class="image1">
+                          <label><b>Females: </b></label><input type="number" id="females" name="females" min="0" max="10000" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+        
+        </p>
+        
+        
+        
+        
+        <p><b>Select Countries of Placement</b>:<br>
+                <label>
+                    <input type="checkbox" name="country1[]" value="Afghanistan"> Afghanistan
+                </label><br>
+                <label>
+                    <input type="checkbox" name="country1[]" value="Albania"> Albania
+                </label><br>
+                <label>
+                    <input type="checkbox" name="country1[]" value="Algeria"> Algeria
+                </label><br>
+                <label>
+                    <input type="checkbox" name="country1[]" value="Andorra"> Andorra
+                </label><br>
+                <label>
+                    <input type="checkbox" name="country1[]" value="Angola"> Angola
+                </label><br>
+        
+                
+        </p>
+        
+        
+        
+        <hr>
+          <b>Upload Job Description File (pdf, docx, doc): </b> 
+            <input type="file" name ="jobdescription" accept=".doc, .docx, .pdf">
+        
+        
+        <b>Upload Photo (jpg, png): </b> 
+            <input type="file" name ="images" accept="image/*"><br>
+        
+          <center>
+            <p>
+              <input type="submit" value ="SUBMIT JOB REGISTRATION" />
+        </centre>
+        </p>
+        </fieldset>
+</form>
+
+
+
+<form method="post" action="jobsearch.php">
+    <p><center>
+        <input type="submit" value="SEE AVAILABLE JOBS" />
+    </center>
+    </p>
+
+</form>
+    <hr>
+    <div class="con">
+        <footer>
+            <a href="pics/2.png"><img src="pics\2.png" width="150px" height="150px"></a>
+        </footer>
+        <footer>
+            <strong><h3>Quick Links</h3></strong>
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div>
+                        <form method="post" action="jobsearch.php"><p><center>
+                            <input type="submit" value="Available Jobs" /></center>
+                        </form>
+                    </div>
+                </li>
+                <li><a href="gal1.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </footer>
+        <footer><strong><h3>Contact Us</h3></strong>
+        Get Employed<br>Jewel Complex, Roysambu<br>PO BOX 1212-00100, Nairobi,<br>Kenya<br>TEL: +254 7 953<br>+254 7446<br>getemployed@gmail.com
+        </footer>
+    <footer><strong><h3>Socials</h3></strong>
+    <ul>
+        
+        <li><a href=""><img src="pics\IG.png.png" width="20px" length="20px"> Instagram</a></li>
+        <li><a href=""><img src="pics\fb.png.png" width="20px" length="20px"> Facebook</a></li>
+        <li><a href=""><img src="pics\twitt.png.png" width="20px" length="20px"> Twitter</a></li>
+        <li><a href=""><img src="pics\app.png.png" width="20px" length="20px"> Whatsapp</a></li>
+    </ul></footer>
+    </div>
+        <div class="foot">
+            <p>&copy 2025 Get Employed. All rights reserved</p>
+        </div>
+
+<script>
+        // Set the minimum start date and time to the current date and time
+        const startInput = document.getElementById('post_date');
+        const deadlineInput = document.getElementById('exp_date');
+        const now = new Date();
+        const timezoneOffset = now.getTimezoneOffset() * 60000; // Adjust for timezone
+        const currentDateTime = new Date(now - timezoneOffset).toISOString().slice(0, 16);
+        startInput.min = currentDateTime;
+
+        // Validate the start and deadline dates
+        function validateDates() {
+            const start = new Date(startInput.value);
+            const deadline = new Date(deadlineInput.value);
+
+            // Check if start date is in the past
+            if (start < now) {
+                alert('Start date and time cannot be before the current date and time.');
+                return false;
+            }
+
+            // Check if deadline is more than 6 months after the start date
+            const sixMonthsLater = new Date(start);
+            sixMonthsLater.setMonth(sixMonthsLater.getMonth() + 6);
+
+            if (deadline > sixMonthsLater) {
+                alert('Deadline date and time cannot be more than 6 months after the start date.');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Update the deadline min and max when the start date changes
+        startInput.addEventListener('change', () => {
+            const start = new Date(startInput.value);
+            const sixMonthsLater = new Date(start);
+            sixMonthsLater.setMonth(sixMonthsLater.getMonth() + 6);
+
+            // Set the deadline min to the start date and max to 6 months later
+            deadlineInput.min = startInput.value;
+            deadlineInput.max = sixMonthsLater.toISOString().slice(0, 16);
+        });
+
+
+        const countries = [
+            { code: "United States", name: "United States" },
+            { code: "Canada", name: "Canada" },
+            { code: "United Kingdom", name: "United Kingdom" },
+            { code: "Australia", name: "Australia" },
+            { code: "India", name: "India" },
+            { code: "Japan", name: "Japan" },
+            { code: "Germany", name: "Germany" },
+            { code: "France", name: "France" },
+            { code: "Brazil", name: "Brazil" },
+            { code: "China", name: "China" },
+            // Add more countries here
+        ];
+
+        function populateCountries() {
+            const countrySelect = document.getElementById('country');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.code;
+                option.textContent = country.name;
+                countrySelect.appendChild(option);
+            });
+        }
+
+        window.onload = populateCountries;
+
+
+
+        
+      
+       
+    
+
+
+
+
+        function calculate() {
+            // Get the input elements
+            const positionsInput = document.getElementById('positions');
+            const femalesInput = document.getElementById('females');
+            const malesInput = document.getElementById('males');
+
+            // Get the values and ensure they are within valid ranges
+            let positions = parseInt(positionsInput.value) || 1; // Default to 1 if empty or invalid
+            let females = parseInt(femalesInput.value) || 0;    // Default to 0 if empty or invalid
+            let males = parseInt(malesInput.value) || 0;       // Default to 0 if empty or invalid
+
+            // Ensure positions are between 1 and 10000
+            if (positions < 1) positions = 1;
+            if (positions > 10000) positions = 10000;
+
+            // Ensure females and males are between 0 and 10000
+            if (females < 0) females = 0;
+            if (females > 10000) females = 10000;
+            if (males < 0) males = 0;
+            if (males > 10000) males = 10000;
+
+            // Determine which field was edited
+            const activeElement = document.activeElement;
+
+            if (activeElement === femalesInput || activeElement === malesInput) {
+                // If females or males were edited, calculate positions
+                positions = females + males;
+            } else if (activeElement === positionsInput) {
+                // If positions were edited, adjust females or males
+                if (females > positions) {
+                    females = positions;
+                    males = 0;
+                } else {
+                    males = positions - females;
+                }
+            }
+
+            // Ensure no negative values for males or females
+            if (males < 0) males = 0;
+            if (females < 0) females = 0;
+
+            // Ensure positions are the sum of females and males
+            positions = females + males;
+
+            // Update the input fields
+            positionsInput.value = positions;
+            femalesInput.value = females;
+            malesInput.value = males;
+        }
+        
+
+            
+    </script>
+</body>
+</html>

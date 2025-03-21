@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+             /* Apply styles for larger screens */
+@media only screen and (min-width: 600px) {
+    /* Adjust layout for screens wider than 600px */
+    .container {
+        width: 80%; /* Adjust as needed */
+        margin: 0 auto;
+    }
+}
+
+/* Apply styles for even larger screens */
+@media only screen and (min-width: 900px) {
+    /* Adjust layout for screens wider than 900px */
+    .container {
+        width: 60%; /* Adjust as needed */
+    }
+}
+
+#container{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 50px;
+            padding-bottom: 10px;
+            list-style: none;
+        }
+        header{
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 18px;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        }
+        ul{
+            list-style: none;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .cta{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: skyblue;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: navy;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover{
+            background-color: blue;
+            opacity: 1;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            opacity: 0.8;
+        }
+        .dropdown-content a{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-content a:hover{
+            background-color: #f2f2f2;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        #bar{
+            margin-top: 30px;
+            background-color: skyblue;
+            text-align: center;
+            padding-left: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 0px;
+
+        }
+        #bar ul li{
+            display: inline-flex; 
+        }
+        #bar ul li a{
+            text-decoration: none;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            transition: 500ms;
+            margin-left: 5px;
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+        #active{
+            background-color: red;
+            color: yellow;
+            border-radius: 5px;
+        }
+        #bar ul li a:hover{
+            background-color: blue;
+            color: white;
+            transition: 500ms;
+            border-radius: 10px;
+        }
+
+        .foot{
+    background-color: #333;
+    color:#fff;
+    text-align: center;
+    margin-top: 10px;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.con{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 20px;
+            margin-bottom: 0px;
+            list-style: none;
+            margin-top: 10px;
+            justify-content: space-evenly;
+            margin-bottom: 60px;
+            
+            
+        }
+        footer{
+            padding-top: 10px;
+            padding-left: 25px;
+            padding-bottom: 10px;
+        }
+
+        ul{
+            list-style: none;
+        }
+        #pers{
+            display: flex;
+            background-color: aqua;
+            justify-content: space-evenly;
+            border-radius: 10px;
+        }
+        .pers1{
+            margin-left: 20px;
+            padding: 50px;
+        }
+        .per0{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .per1{
+           
+            margin-left: 0px;
+            padding: 10px;
+        }
+        .comment0{
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: antiquewhite;
+            border-radius: 5px;
+            padding-bottom: 20px;
+        }
+        .submit{
+            text-align: center;
+            margin: 50px;
+            margin-left: 300px;
+           
+           text-align: center;
+            display: flex;
+
+        }
+        .submit1{
+            background-color: blue;
+            padding-left: 50px;
+            margin: 50px;
+            padding-right: 50px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            font-size: 25px;
+            border-radius: 10px;
+        }
+        .go{
+            text-align: end;
+            font-size: 25px;
+            margin-right: 20px;
+        }
+
+    </style>
+</head>
+<body><body bgcolor="#f4f4f4">
+    <div id="container">
+        <header><img src="pics\location.png" width="30px" length="30px" >&nbsp Roysambu, Jewellery Complex Plaza, Ground Floor</header>
+        <header><img src="pics\mail.png.png" width="30px" length="30px" >&nbsp getemployed@gmail.com </header>
+        <header><img src="pics\tel.png.png" width="30px" length="30px" >&nbsp +2547446</header>
+        <header><a href="register.html">Register</a></header>
+        <header><a href="login.html">Login</a></header>
+    </div>
+    <div id="container">
+        <div class="img">
+    <a href="pics/2.png"><img src="pics\2.png" width="500px" height="150px" class="img"></a></div>
+
+    <header>
+        <div id="bar">
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li>
+                    <div>
+                        <form method="post" action="jobsearch.php"><p><center><input type="submit" value="Available Jobs" /></center></form>
+                    </div>
+                </li> 
+                <li><a href="gal1.html">Gallery</a></li>
+                <li><a href="#" id="active">Contact Us</a></li>
+    
+                
+            </ul>
+            
+        </div>
+    </header>
+    </div>
+
+
+
+
+    <form action="https://formspree.io/f/mvoebyrl" method="post">
+        <h1><center id="cta">Contact Us</center></h1>
+        <fieldset>
+            <legend><h3>Personal information</h3></legend>
+            <div id="pers">
+                <div class="pers1">
+          <label>First Name:*</label>&nbsp &nbsp <input type="text" name="First_name" required>
+        </div>
+        <div class="pers1">
+            <label>Last Name:*</label>&nbsp &nbsp <input type="text" name="Last_name" required>
+        </div>
+        <div class="pers1">
+            <label>Date of Birth:*</label>&nbsp &nbsp <input type="date" name="DOB" required>
+        </div>
+        </div>
+        <div id="pers">
+            <div class="pers1">
+                <label>Phone Number:*</label>&nbsp &nbsp
+                <input type="text" onkeypress="return(event.charCode>=48)&&(event.charCode<=57)" min="0" max="10" placeholder ="0712 345 678" name="tel" required>
+            </div>
+            <div class="pers1">
+                <label for="email">Email:*</label>&nbsp &nbsp
+           <input type="email" placeholder="email" name="email" required>
+            </div>
+            <div class="pers1">
+                <label>Gender*</label>&nbsp &nbsp
+                <input type="radio" name="gender" value="Male"required> Male
+                <input type="radio" name="gender" value="Male"> Female
+                <input type="radio" name="gender" value="Male"> Other
+            </div>
+        </div>
+        </fieldset>
+        <fieldset>
+            <Legend><h3>Home Address</h3></Legend>
+            <div class="per0">
+                <div class="per1">
+                    <label>Country:</label>&nbsp &nbsp<select multiple size="1">
+                    <option value="--select" name="country"></option>
+                    <option value="Kenya" name="country">Kenya</option>
+                    <option value="" name="country">Uganda</option>
+                    <option value="" name="country">Tanzania</option>
+                    <option value="" name="country">Burundi</option>
+                    <option value="" name="country">Eritrea</option>
+                    <option value="" name="country">Rwanda</option>
+                    <option value="" name="country">Somalia</option>
+                    <option value="" name="country">Sudan</option>
+                    <option value="" name="country">Ethiopia</option>
+                    <option value="" name="country">South Sudan</option>
+                    <option value="" name="country">Uganda</option>
+                </select>
+                    </div>
+                <div class="per1">
+                <label>Postal Code:</label>&nbsp &nbsp
+                <input type="text" onkeypress="return(event.charCode>=48)&&(event.charCode<=57)" min="0" max="10" name="postal_code" placeholder="Numbers only" required>
+                <label>County:</label>&nbsp &nbsp
+                <select required>
+                    <option value="--select--" name="county"></option>
+                    <option value="" name="county">Nairobi</option>
+                    <option value="" name="county">Kiambu</option>
+                    <option value="" name="county">Nyeri</option>
+                    <option value="" name="county">Kirinyaga</option>
+                    <option value="" name="county">Muranga</option>
+                    <option value="" name="county">Eldoret</option>
+                    <option value="" name="county">Uasin Gishu</option>
+                    <option value="" name="county">Mandera</option>
+                    <option value="" name="county">Nyandarua</option>
+                    <option value="" name="county">Homabay</option>
+                    <option value="" name="county">Kisumu</option>
+                    <option value="" name="county">Kisii</option>
+                    <option value="" name="county">Nyamira</option>
+                </select>
+                </div>
+                <div class="per1">
+                    <label>Sub-County:</label>&nbsp &nbsp
+                    <input type="text" onkeypress="return(event.charCode>=65)&&(event.charCode<=91) || (event.charCode>=97)&&(event.charCode<=123)" placeholder="Sub-County" name="Sub-County">
+                </div>
+            </div>
+            <div class="per1">
+                </div>
+        </fieldset>
+        <fieldset>
+            <legend><h3>Querries?</h3></legend>
+            <div class="comment0">
+                <label><h4>Tell Us Something:</h4></label><br>
+<textarea cols="100" rows="4" placeholder="Write Something!!!" name="Comments"></textarea>
+            </div>
+
+        </fieldset>
+        <div class="submit">
+            <div class="submit1">
+        <button type="submit">Submit</button>
+        </div>
+        <div class="submit1">
+        <button type="reset">Clear</div>
+    </div>
+    <div class="go">
+       <button><a href="#cta">Go Up</a></button>
+    </div>
+    </form>
+    
+
+
+
+
+
+
+
+
+    <hr>
+    <div class="con">
+        <footer>
+            <a href="pics/2.png"><img src="pics\2.png" width="150px" height="150px"></a>
+        </footer>
+        <footer>
+            <strong><h3>Quick Links</h3></strong>
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div class="dropdown">
+                    <form method="post" action="jobsearch.php"><p><center>
+                        <input type="submit" value="Available Jobs" /></center>
+                    </form>
+                   
+                <li><a href="gal1.html">Gallery</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </footer>
+        <footer><strong><h3>Contact Us</h3></strong>
+        Get Employed<br>Jewel Complex, Roysambu<br>PO BOX 1212-00100, Nairobi,<br>Kenya<br>TEL: +254 7953<br>+254 7446<br>getemployed@gmail.com
+        </footer>
+    <footer><strong><h3>Socials</h3></strong>
+    <ul>
+        
+        <li><a href=""><img src="pics\IG.png.png" width="20px" length="20px"> Instagram</a></li>
+        <li><a href=""><img src="pics\fb.png.png" width="20px" length="20px"> Facebook</a></li>
+        <li><a href=""><img src="pics\twitt.png.png" width="20px" length="20px"> Twitter</a></li>
+        <li><a href=""><img src="pics\app.png.png" width="20px" length="20px"> Whatsapp</a></li>
+    </ul></footer>
+    </div>
+        <div class="foot">
+            <p>&copy 2025 Get Employed. All rights reserved</p>
+        </div>
+</body>
+</html>

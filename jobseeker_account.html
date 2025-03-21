@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Seeker Dashboard</title>
+    <link rel="stylesheet" href="jobseeker_account.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-container h1 {
+            color: #333;
+        }
+        .logout-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome, <span id="username"></span>!</h1>
+        <p>Last Login: <span id="lastLogin"></span></p>
+        <button class="logout-button" onclick="logout()" id="logoutBtn">Logout</button>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#jobs">Jobs</a></li>
+            <li><a href="#messages">Messages</a></li>
+            <li><a href="#settings">Settings</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="job-search-status">
+            <h2>Job Search Status</h2>
+            <div id="jobSearchStatus"></div>
+        </section>
+        <section id="recommended-jobs">
+            <h2>Recommended Jobs</h2>
+            <div id="recommendedJobs"></div>
+        </section>
+        <section id="recent-activity">
+            <h2>Recent Activity</h2>
+            <div id="recentActivity"></div>
+        </section>
+        <section id="notifications">
+            <h2>Notifications</h2>
+            <div id="notificationsContent"></div>
+        </section>
+        <section id="quick-actions">
+            <h2>Quick Actions</h2>
+            <button id="uploadResumeBtn">Upload Resume</button>
+            <button id="editProfileBtn">Edit Profile</button>
+            <button id="searchJobsBtn">Search Jobs</button>
+            <button id="applyJobsBtn">Apply for Jobs</button>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userId = localStorage.getItem('user_id');
+
+            if (!userId) {
+                window.location.href = 'login.html';
+            }
+
+            // Fetch user details
+            fetch('jobseeker_dashboard.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Display user details
+                        document.getElementById('username').textContent = data.user.firstName;
+                        document.getElementById('lastLogin').textContent = data.user.lastLogin;
+
+                        // Display dashboard data
+                        displayJobSearchStatus(data.data.job_search_status);
+                        displayRecommendedJobs(data.data.recommended_jobs);
+                        displayRecentActivity(data.data.recent_activity);
+                    }
+                });
+
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function () {
+                localStorage.removeItem('user_id');
+                window.location.href = 'login.html';
+            });
+        });
+
+        function displayJobSearchStatus(status) {
+            const container = document.getElementById('jobSearchStatus');
+            let html = `<h3>Jobs Applied To: ${status.jobs_applied.length}</h3>`;
+            html += `<h3>Interviews Scheduled: ${status.interviews_scheduled.length}</h3>`;
+            html += `<h3>Job Offers Received: ${status.job_offers.length}</h3>`;
+            container.innerHTML = html;
+        }
+
+        function displayRecommendedJobs(jobs) {
+            const container = document.getElementById('recommendedJobs');
+            let html = '<ul>';
+            jobs.forEach(job => {
+                html += `<li>${job.jobname} (ID: ${job.id})</li>`;
+            });
+            html += '</ul>';
+            container.innerHTML = html;
+        }
+
+        function displayRecentActivity(activity) {
+            const container = document.getElementById('recentActivity');
+            let html = '<h3>Recently Viewed Jobs</h3><ul>';
+            activity.recently_viewed.forEach(job => {
+                html += `<li>${job.jobname} (${job.company})</li>`;
+            });
+            html += '</ul><h3>Application Updates</h3><ul>';
+            activity.application_updates.forEach(update => {
+                html += `<li>${update.jobname}: ${update.progress}</li>`;
+            });
+            html += '</ul>';
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

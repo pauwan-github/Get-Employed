@@ -1,0 +1,36 @@
+#profileContent {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#profileContent img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#profilePhotoForm {
+    margin-top: 20px;
+}
+
+#profilePhotoForm input[type="file"] {
+    margin-bottom: 10px;
+}
+
+#profilePhotoForm button {
+    background-color: #0073b1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#profilePhotoForm button:hover {
+    background-color: #005f8d;
+}

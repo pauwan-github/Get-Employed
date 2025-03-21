@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+    <style>
+        /* Apply styles for larger screens */
+        @media only screen and (min-width: 600px) {
+            /* Adjust layout for screens wider than 600px */
+            .container {
+                width: 80%; /* Adjust as needed */
+                margin: 0 auto;
+            }
+        }
+
+        /* Apply styles for even larger screens */
+        @media only screen and (min-width: 900px) {
+            /* Adjust layout for screens wider than 900px */
+            .container {
+                width: 60%; /* Adjust as needed */
+            }
+        }
+
+        #container{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 50px;
+            padding-bottom: 10px;
+            list-style: none;
+        }
+        header{
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 18px;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        }
+        ul{
+            list-style: none;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .cta{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: skyblue;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: navy;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover{
+            background-color: blue;
+            opacity: 1;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            opacity: 0.8;
+        }
+        .dropdown-content a{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-content a:hover{
+            background-color: #f2f2f2;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        #bar{
+            margin-top: 30px;
+            background-color: skyblue;
+            text-align: center;
+            padding-left: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 0px;
+
+        }
+        #bar ul li{
+            display: inline-flex; 
+        }
+        #bar ul li a{
+            text-decoration: none;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            transition: 500ms;
+            margin-left: 5px;
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+        #active{
+            background-color: red;
+            color: yellow;
+            border-radius: 5px;
+        }
+        #bar ul li a:hover{
+            background-color: blue;
+            color: white;
+            transition: 500ms;
+            border-radius: 10px;
+        }
+
+        .foot{
+    background-color: #333;
+    color:#fff;
+    text-align: center;
+    margin-top: 10px;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.con{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 20px;
+            margin-bottom: 0px;
+            list-style: none;
+            margin-top: 10px;
+            justify-content: space-evenly;
+            margin-bottom: 60px;
+            
+        }
+        footer{
+            padding-top: 10px;
+            padding-left: 25px;
+            padding-bottom: 10px;
+        }
+
+        #pers{
+            display: flex;
+            background-color: aqua;
+            justify-content: space-evenly;
+            border-radius: 10px;
+        }
+        .pers1{
+            margin-left: 20px;
+            padding: 50px;
+            background-color: aqua;
+        }
+        .per0{
+            display: flex;
+            justify-content: space-evenly;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+        .per1{
+           
+            margin-left: 0px;
+            padding: 10px;
+            background-color: aqua;
+        }
+
+
+        /* Additional CSS for the form and its elements */
+form {
+    background-color: lightgray; /* Match the container background */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 100%;
+    font-size: 20px;
+}
+
+fieldset {
+    border: 2px solid lightgray; /* Use skyblue for borders */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: navy; /* Use navy for text */
+    font-size: 20px;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    color: #333; /* Dark gray for labels */
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff; /* White background for inputs */
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: skyblue; /* Use skyblue for the submit button */
+    color: navy; /* Navy text for contrast */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: blue; /* Change to blue on hover */
+    color: white; /* White text on hover */
+}
+
+/* Style for file upload sections */
+input[type="file"] {
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for the "Years of Experience" input */
+input[type="number"] {
+    width: 100px; /* Limit width for number inputs */
+}
+
+/* Style for the "Referee's Name", "Referee's Email", and "Referee's Phone Number" sections */
+#pers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.pers1 {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.pers1:last-child {
+    margin-right: 0;
+}
+
+/* Style for the "Upload your Curriculum Vitae" and "Upload your application letter" sections */
+#pers1 {
+    margin-bottom: 15px;
+}
+
+/* Style for the "Upload a photo" section */
+#pers:last-child {
+    margin-bottom: 20px;
+}
+
+/* Style for the job details section */
+#job-details {
+    background-color: aqua; /* Use aqua for the job details background */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#job-title {
+    color: navy; /* Navy for the job title */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#job-description {
+    color: #333; /* Dark gray for the job description */
+    font-size: 16px;
+}
+
+/* Style for the footer */
+.foot {
+    background-color: #333; /* Dark background for the footer */
+    color: #fff; /* White text for the footer */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+        
+
+    </style>
+
+    <script>
+        // Function to get the job ID from the URL
+        function getJobId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+    
+        // Function to convert a string to title case
+        function toTitleCase(str) {
+            // List of conjunctions and prepositions to keep in lowercase
+            const lowercaseWords = ["and", "or", "the", "a", "an", "in", "on", "at", "for", "with", "to", "by", "of"];
+    
+            return str
+                .toLowerCase() // Convert the entire string to lowercase
+                .split(" ") // Split the string into words
+                .map((word, index) => {
+                    // Capitalize the first letter of each word, except for conjunctions (unless it's the first word)
+                    if (index === 0 || !lowercaseWords.includes(word)) {
+                        return word.charAt(0).toUpperCase() + word.slice(1);
+                    } else {
+                        return word;
+                    }
+                })
+                .join(" "); // Join the words back into a single string
+        }
+    
+        // Fetch job details based on the job ID
+        async function fetchJobDetails(jobId) {
+            try {
+                const response = await fetch(`getJobDetails.php?id=${jobId}`);
+                const data = await response.json();
+                if (data) {
+                    // Format the job name to title case
+                    const formattedJobName = toTitleCase(data.jobname);
+    
+                    // Display the job details on the page
+                    document.getElementById('job-title').innerText = `Job ID: ${jobId} - ${formattedJobName}`;
+                    document.getElementById('job-description').innerText = data.editor;
+                    // Set the job ID in a hidden input field
+                    document.getElementById('job-id').value = jobId;
+                } else {
+                    document.getElementById('job-details').innerText = "Job not found.";
+                }
+            } catch (error) {
+                console.error('Error fetching job details:', error);
+            }
+        }
+    
+        // On page load, fetch and display job details
+        window.onload = function() {
+            const jobId = getJobId();
+            if (jobId) {
+                fetchJobDetails(jobId);
+            } else {
+                document.getElementById('job-details').innerText = "No job ID provided.";
+            }
+        };
+    </script>
+
+</head>
+<body>
+
+    <div id="container">
+        <header><img src="pics/location.png" width="30px" height="30px" >&nbsp Roysambu, Jewellery Complex Plaza, Ground Floor</header>
+        <header><img src="pics/mail.png.png" width="30px" height="30px" >&nbsp getemployed@gmail.com </header>
+        <header><img src="pics/tel.png.png" width="30px" height="30px" >&nbsp +2547446</header>
+            <header><a href="register.html">Register</a></header>
+            <header><a href="login.html">Login</a></header>
+    </div>
+    <div id="container">
+        <div class="img">
+    <a href="pics/2.png"><img src="pics/2.png" width="500px" height="150px" class="img"></a></div>
+
+    <header>
+        <div id="bar">
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div>
+                    <form method="post" action="jobsearch.php"><p><center>
+                        <input type="submit" value="Available Jobs" /></center>
+                    </form>
+                    
+                </div></li> 
+                <li><a href="gal1.html">Gallery</a></li>
+                
+                <li><a href="contactus.html">Contacts</a></li>
+    
+                
+            </ul>
+            
+        </div>
+    </header>
+    </div>
+    
+                
+
+                    
+        
+
+
+
+    <form method="POST" action="application.php" enctype="multipart/form-data">
+        <fieldset>
+            <legend><b>Person Details</b></legend>
+            <p>Please enter your names in reference to your National Identity Card.</p>
+            <div id="pers">
+                <div class="pers1">
+                    
+          <label>First Name*:</label><br> <input type = "text" name = "fname" size ="20" required>
+        </div>
+        <div class="pers1">
+            <label>Last Name*:</label><br> <input type = "text" name = "lname" size ="20" reqiured>
+        </div>
+        <div class="pers1">
+            <label>Middle Name*:</label><br> <input type = "text" name = "mname" size ="20">
+        </div>
+        <div class="pers1">
+            <label>Gender*:</label><br> <label>M<input type="radio" name="gender" value="male"></label>
+            <label>F<input type="radio" name="gender" value="female"></label>
+          </div>
+        </div>
+
+        <div id="pers">
+            
+    <div class="pers1">
+        <label>ID Number*:</label><br> <input type = "number" name = "idno" maxlength = "10" oninput="this.value = this.value.replace(/[^0-9]/g, '') .slice(0, 10);" size ="20" reqiured>
+    </div>
+    <div class="pers1">
+        <label>Email*:</label><br> <input type = "email" name = "email" size ="20" reqiured>
+    </div>
+    <div class="pers1">
+        <label>Phone Number*:</label><br> <label><input type = "number" name = "tel" size = "" maxlength = "10" oninput = "this.value = this.value.replace(/[^0-9]/g, '');" required>
+    </div>
+    <div class="pers1">
+        <label>Alternative Phone Number*:</label><br> <label><input type = "number" name = "alttel" size = "" maxlength = "10" oninput = "this.value = this.value.replace(/[^0-9]/g, '');">
+      </div>
+    </div>
+
+
+    <p>Please upload a copy of your National Identiry Card (png, jpg, jpeg note more than 5mb)</p>
+    <div class="per0">
+        <div class="per1">
+         <label>ID Card Photo Front*:</label>&nbsp &nbsp <input type = "file" name = "idfront" accept="images" reqiured>
+         <label>ID Card Photo Back*:</label>&nbsp &nbsp <input type = "file" name = "idback" accept = "images" reqiured>
+        </div>
+    </div>
+        </fieldset><br><br><br><br>
+
+        <fieldset>
+            <legend><b>Work Experience</b></legend>
+
+
+
+            <div id="pers">
+            
+                <div class="pers1">
+                    <p><b>NOTE:</b> Please enter your previous (if not working at the time of application) or your  current company details.<br>If you have never been employed please write N/A.</p>
+                </div>
+                <div class="pers1">
+                    <label>Company Name*:</label><br>
+                    <input type = "text" name = "companyname" size = "30" required> 
+                </div>
+            </div>
+
+
+            <div id="pers">
+                <div class="pers1">
+                    <p><b>NOTE:</b> Please enter your previous (if not working at the time of application) or your current job title details.<br> If none please write N/A.</p>
+                </div>
+                <div class="pers1">
+                    <label>Job Title*:</label><br>
+                    <input type = "text" name = "jobtitle" size = "30"required><br>
+                </div>
+            </div>
+
+
+
+            <div id="pers">
+                <div class="pers1">
+                    <p><b>NOTE:</b>Please enter the number of years you have worked in the company. If you have no work experience or your work experience is less than one year, please enter 0.</p>
+                </div>
+                <div class="pers1">
+                    <label>Years of Experience*:</label><br>
+                      <input type = "number" name = "no_of_experience" size = "5" maxlength = "2" oninput="this.value = this.value.replace(/[^0-9]/g, '') .slice(0, 2);" required>
+                </div>
+            </div>
+
+
+            <div id="pers">
+                <div class="pers1">
+                    <label>Referee's Name: </label>
+                    <input type = "text" name = "referee" size = "20">
+                </div>
+                <div class="pers1">
+                    <label>Referee's Email: </label>
+                    <input type = "text" name = "refemail" size = "20">
+                </div>
+                <div class="pers1">
+                    <label>Referee's Phone Number: </label>
+                    <input type = "tel" name = "reftel" size = "20" maxlength = "10" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                </div>
+            </div>
+
+
+            <div id="pers">
+                <div class="pers1">
+                    <p>Please provide a reference letter if any.</p>
+                </div>
+                <div class="pers1">
+                    <label>Reference Letter:</label><br>
+                    <input type = "file" name = "refletter" accept = ".doc, .docx, .pdf"><br>
+                </div>
+            </div><br><br>
+    </fieldset>
+
+    <fieldset>   
+        
+            <legend>Post Applying for</legend>
+        <div id = "pers"></div>
+            <div id="pers1">
+                <div id="job-details">
+                    <h1 id="job-title"></h1>
+                    <p id="job-description"></p>
+                    <!-- Add more fields as needed -->
+                </div>
+            </div><br><br>
+        </div>
+        <div id = "pers">
+            <div id = "pers1">
+                <input type="hidden" id="job-id" name="job-id">
+                <p>Enter below the number of years of experience that you have had in the position that you are applying for or a similar position. If none put 0</p>
+            
+            <div id = "pers1">
+                <label>Years of Experience: </label><br>
+                <input type = "number" name = "post_experience" maxlength = "10" oninput="this.value = this.value.replace(/[^0-9]/g, '') .slice(0, 2);" required>
+            </div>
+        <div id = "pers">
+            <div id = "pers1">
+                <b><label>Upload your Curriculum Vitae*:</label></b>
+                <input type = "file" name = "cv" accept = ".doc, .docx, .pdf" required>
+            </div>
+            <div id = "pers1">
+                <b><label>Upload your application letter: </label></b>
+                <input type = "file" name = "app_letter" accept = ".doc, .docx, .pdf"><br>
+            </div>            
+        </div>
+        <div id = "pers"> 
+            <b>Upload a formal picture of yourself. That is in png, jpg or jpeg format</p>
+            <b><label>Upload a photo: </label></b>
+            <input type = "file" name = "applicantphoto" accept = "images" required><br>
+        </div>
+
+        
+    </fieldset>
+    <form>
+        <input type = "submit" name = "submit" value = "submit">
+        <input type="reset" name = "clear" value="Clear Form">
+    </form>
+
+    <hr>
+    <div class="con">
+        <footer>
+            <a href="pics/2.png"><img src="pics\2.png" width="150px" height="150px"></a>
+        </footer>
+        <footer>
+            <strong><h3>Quick Links</h3></strong>
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div>
+                        <form method="post" action="jobsearch.php">
+                            <p><center><input type="submit" value="Available Jobs" /></center>
+                        </form>
+                    </div>
+                </li>
+                
+                        
+                <li><a href="gal1.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </footer>
+        <footer><strong><h3>Contact Us</h3></strong>
+        Get Employed<br>Jewel Complex, Roysambu<br>PO BOX 1212-00100, Nairobi,<br>Kenya<br>TEL: +254 7953<br>+254 7446<br>getemployed@gmail.com
+        </footer>
+    <footer><strong><h3>Socials</h3></strong>
+    <ul>
+        
+        <li><a href=""><img src="pics\IG.png.png" width="20px" length="20px"> Instagram</a></li>
+        <li><a href=""><img src="pics\fb.png.png" width="20px" length="20px"> Facebook</a></li>
+        <li><a href=""><img src="pics\twitt.png.png" width="20px" length="20px"> Twitter</a></li>
+        <li><a href=""><img src="pics\app.png.png" width="20px" length="20px"> Whatsapp</a></li>
+    </ul></footer>
+    </div>
+        <div class="foot">
+            <p>&copy 2025 Get Employed. All rights reserved</p>
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Jobs</title>
+    <style>
+        /* Apply styles for larger screens */
+        @media only screen and (min-width: 600px) {
+            /* Adjust layout for screens wider than 600px */
+            .container {
+                width: 80%; /* Adjust as needed */
+                margin: 0 auto;
+            }
+        }
+
+        /* Apply styles for even larger screens */
+        @media only screen and (min-width: 900px) {
+            /* Adjust layout for screens wider than 900px */
+            .container {
+                width: 60%; /* Adjust as needed */
+            }
+        }
+
+        #container{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 50px;
+            padding-bottom: 10px;
+            list-style: none;
+        }
+        header{
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 18px;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        }
+        ul{
+            list-style: none;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .cta{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: skyblue;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: navy;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover{
+            background-color: blue;
+            opacity: 1;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            opacity: 0.8;
+        }
+        .dropdown-content a{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-content a:hover{
+            background-color: #f2f2f2;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        #bar{
+            margin-top: 30px;
+            background-color: skyblue;
+            text-align: center;
+            padding-left: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 0px;
+
+        }
+        #bar ul li{
+            display: inline-flex;  
+        }
+        #bar ul li a{
+            text-decoration: none;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            transition: 500ms;
+            margin-left: 5px;
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+        #active{
+            background-color: red;
+            color: yellow;
+            border-radius: 5px;
+        }
+        #bar ul li a:hover{
+            background-color: blue;
+            color: white;
+            transition: 500ms;
+            border-radius: 10px;
+        }
+
+        .foot{
+    background-color: #333;
+    color:#fff;
+    text-align: center;
+    margin-top: 10px;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.con{
+            display:flex;
+            margin-left: 0px;
+            background-color: lightgray;
+            padding-left: 20px;
+            margin-bottom: 0px;
+            list-style: none;
+            margin-top: 10px;
+            justify-content: space-evenly;
+            margin-bottom: 60px;
+            
+        }
+        footer{
+            padding-top: 10px;
+            padding-left: 25px;
+            padding-bottom: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input, button {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .dynamic-input {
+            display: none; /* Hide dynamic inputs by default */
+        }
+        .radio-group {
+            display: flex;
+            gap: 10px; /* Space between radio buttons */
+        }
+        .date-range-inputs {
+            display: flex;
+            gap: 10px; /* Space between date inputs */
+        }
+
+
+        /* General reset for margin and padding */
+body, h1, form, div, label, select, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Center the content on the page */
+#body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the heading */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style the form container */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Style the filter container */
+.filter-container {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.filter-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filter-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Style the dynamic inputs */
+.dynamic-input {
+    margin-bottom: 15px;
+    width: 100%;
+    display: none; /* Hidden by default */
+}
+
+.dynamic-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.dynamic-input input[type="text"],
+.dynamic-input input[type="date"],
+.dynamic-input select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.date-range-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.date-range-inputs input {
+    flex: 1;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+}
+
+.radio-group label {
+    font-weight: normal;
+}
+
+/* Style the submit button */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    </style>
+    <script>
+        // JavaScript to show/hide dynamic inputs based on dropdown selection
+        function showFilterInput() {
+            const filterType = document.getElementById("filter_type").value;
+            const dynamicInputs = document.querySelectorAll(".dynamic-input");
+
+            // Hide all dynamic inputs
+            dynamicInputs.forEach(input => input.style.display = "none");
+
+            // Show the selected dynamic input
+            if (filterType === "date_filter") {
+                document.getElementById("date_filter_input").style.display = "block";
+            } else if (filterType === "location") {
+                document.getElementById("location_input").style.display = "block";
+            } else if (filterType === "country") {
+                document.getElementById("country_input").style.display = "block";
+            } else if (filterType === "country1") {
+                document.getElementById("country1_input").style.display = "block";
+            } else if (filterType === "gender") {
+                document.getElementById("gender_input").style.display = "block";
+            } else if (filterType === "date_range") {
+                document.getElementById("date_range_input").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <header><img src="pics/location.png" width="30px" height="30px" >&nbsp Roysambu, Jewellery Complex Plaza, Ground Floor</header>
+        <header><img src="pics/mail.png.png" width="30px" height="30px" >&nbsp getemployed@gmail.com </header>
+        <header><img src="pics/tel.png.png" width="30px" height="30px" >&nbsp +2547446</header>
+        <header><a href="login.html">Log Out</a></header>
+    </div>
+    <div id="container">
+        <div class="img">
+    <a href="pics/2.png"><img src="pics/2.png" width="500px" height="150px" class="img"></a></div>
+
+    <header>
+        <div id="bar">
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div>
+                    <form method="post" action="jobsearch.php"><p><center>
+                        <input type="submit" value="Available Jobs" /></center>
+                    </form>
+                    
+                </div></li> 
+                <li><a href="gal1.html">Gallery</a></li>
+                
+                <li><a href="contactus.html">Contact Us</a></li>
+    
+                
+            </ul>
+            
+        </div>
+    </header>
+    </div>
+    
+    <form method="POST" action="filter_jobs.php" id="body">
+        <!-- Dropdown for Filter Type -->
+        <div class="filter-container">
+            <label for="filter_type">Filter By:</label>
+            <select id="filter_type" name="filter_type" onchange="showFilterInput()">
+                <option value="">-- Select Filter Type --</option>
+                
+                    <option value="date_filter">Date Range (Oldest/Newest)</option>
+                    <option value="date_range">Specific Date Range</option>
+                
+                
+                    <option value="location">Company's Location</option>
+                
+                    <option value="country">Company's Country</option>
+    
+                
+                    <option value="country1">Country of Placement</option>
+                
+                
+                    <option value="gender">Gender</option>
+               
+            </select>
+        </div>
+
+        <!-- Dynamic Inputs -->
+        <div id="date_filter_input" class="dynamic-input">
+            
+            <select id="date_filter" name="date_filter">
+                <option value="">-- Select Date Filter --</option>
+                <option value="oldest_to_newest">Oldest to Newest</option>
+                <option value="newest_to_oldest">Newest to Oldest</option>
+            </select>
+        </div>
+
+        <div id="date_range_input" class="dynamic-input">
+            <label>Select Specific Date Range:</label>
+            <div class="date-range-inputs">
+                <input type="date" id="from_date" name="from_date" placeholder="From Date">
+                <input type="date" id="to_date" name="to_date" placeholder="To Date">
+            </div>
+        </div>
+
+        <div id="location_input" class="dynamic-input">
+            <input type="text" id="location" name="location" placeholder="Enter location">
+        </div>
+
+        <div id="country_input" class="dynamic-input">
+            <input type="text" id="country" name="country" placeholder="Enter Company's country">
+        </div>
+
+        <div id="country1_input" class="dynamic-input">
+            <input type="text" id="country1" name="country1" placeholder="Enter country of placement">
+        </div>
+
+        <div id="gender_input" class="dynamic-input">
+            <div class="radio-group">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Filter</button>
+    </form>
+    <hr>
+    <div class="con">
+        <footer>
+            <a href="pics/2.png"><img src="pics\2.png" width="150px" height="150px"></a>
+        </footer>
+        <footer>
+            <strong><h3>Quick Links</h3></strong>
+            <ul>
+                <li><a href="http://localhost/Exercises/">Home</a></li>
+                <li><div>
+                        <form method="post" action="jobsearch.php">
+                            <p><center><input type="submit" value="Available Jobs" /></center>
+                        </form>
+                    </div>
+                </li>
+                
+                        
+                <li><a href="gal1.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </footer>
+        <footer><strong><h3>Contact Us</h3></strong>
+        Get Employed<br>Jewel Complex, Roysambu<br>PO BOX 1212-00100, Nairobi,<br>Kenya<br>TEL: +254 7953<br>+254 7446<br>getemployed@gmail.com
+        </footer>
+    <footer><strong><h3>Socials</h3></strong>
+    <ul>
+        
+        <li><a href=""><img src="pics\IG.png.png" width="20px" length="20px"> Instagram</a></li>
+        <li><a href=""><img src="pics\fb.png.png" width="20px" length="20px"> Facebook</a></li>
+        <li><a href=""><img src="pics\twitt.png.png" width="20px" length="20px"> Twitter</a></li>
+        <li><a href=""><img src="pics\app.png.png" width="20px" length="20px"> Whatsapp</a></li>
+    </ul></footer>
+    </div>
+        <div class="foot">
+            <p>&copy 2025 Get Employed. All rights reserved</p>
+        </div>
+</body>
+</html>
